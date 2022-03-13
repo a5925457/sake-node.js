@@ -3,7 +3,11 @@ const express = require('express');
 const app = express();
 const cors = require('cors');
 
+// use cors
 app.use(cors());
+
+// set static folder
+app.use(express.static(__dirname + '/public'));
 
 app.get('/', (req, res) => {
     res.send('<h1>Hello</h1>');
@@ -19,6 +23,6 @@ app.use((req, res) => {
     res.status(404).send('<h1>404</h1>');
 });
 
-app.listen(3000, () => {
+app.listen(5000, () => {
     console.log('Server is running');
 });
